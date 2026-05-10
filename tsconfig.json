@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "extends": "@oiij/tsconfig/tsconfig.json",
+  "compilerOptions": {
+    "paths": {
+      "~/*": [
+        "./src/*"
+      ]
+    },
+    "types": [
+      "vitest/globals",
+      "@dcloudio/types",
+      "miniprogram-api-typings",
+      "unplugin-icons/types/vue",
+      "@uni-helper/uni-types",
+      "@uni-helper/vite-plugin-uni-pages",
+      "uni-echarts/global",
+      "@wot-ui/ui/global"
+    ],
+    "plugins": [
+      { "name": "@dxup/unimport" }
+    ]
+  },
+  "vueCompilerOptions": {
+    // 调整 Volar（Vue 语言服务工具）解析行为，用于为 uni-app 组件提供 TypeScript 类型
+    "plugins": ["@uni-helper/uni-types/volar-plugin"]
+  },
+  "include": ["src", "*.d.ts"],
+  "exclude": ["node_modules", "dist", "test"]
+}

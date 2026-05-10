@@ -1,0 +1,16 @@
+import { defineStore } from 'pinia'
+
+export const useAppStore = defineStore(
+  'appStore',
+  () => {
+    return {
+
+    }
+  },
+  {
+    persist: {
+      key: '__APP_STORE_PERSIST__',
+      pick: [''],
+    },
+  },
+)

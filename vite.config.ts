@@ -1,0 +1,83 @@
+import type { UserConfig } from 'vite'
+import { resolve } from 'node:path'
+import process from 'node:process'
+import Uni from '@uni-helper/plugin-uni'
+import UniHelperLayouts from '@uni-helper/vite-plugin-uni-layouts'
+import UniHelperManifest from '@uni-helper/vite-plugin-uni-manifest'
+import UniHelperPages from '@uni-helper/vite-plugin-uni-pages'
+import UniPlatformModifier from '@uni-helper/vite-plugin-uni-platform-modifier'
+import postcssPresetEnv from 'postcss-preset-env'
+import px2rpx from 'postcss-pxtorpx-pro'
+import { UniEcharts } from 'uni-echarts/vite'
+import Unocss from 'unocss/vite'
+import Icons from 'unplugin-icons/vite'
+import { defineConfig, loadEnv } from 'vite'
+import UniPolyfill from 'vite-plugin-uni-polyfill'
+import { AutoImport, Components } from './plugins'
+
+// https://vitejs.dev/config/
+export default defineConfig(({ mode }) => {
+  const { VITE_DEV_PORT, VITE_API_BASE_PREFIX, VITE_API_BASE_URL } = loadEnv(mode, process.cwd(), '')
+
+  return {
+    plugins: [
+      UniHelperManifest(), // https://uni-helper.js.org/vite-plugin-uni-manifest
+      UniHelperPages({
+        exclude: ['**/components/**/*.*'],
+      }), // https://uni-helper.js.org/vite-plugin-uni-pages
+      UniHelperLayouts(), // https://uni-helper.js.org/vite-plugin-uni-layouts
+      Unocss(),
+      Icons({ compiler: 'vue3' }),
+      UniPolyfill(),
+      AutoImport,
+      Components,
+      Uni(),
+      UniPlatformModifier(),
+      UniEcharts(),
+    ],
+    clearScreen: true,
+    server: {
+      port: Number(VITE_DEV_PORT),
+      host: true, // host设置为true才可以使用network的形式，以ip访问项目
+      open: false, // 自动打开浏览器
+      cors: true, // 跨域设置允许
+      strictPort: true, // 如果端口已占用直接退出
+      proxy: VITE_API_BASE_URL === ''
+        ? undefined
+        : {
+            [VITE_API_BASE_PREFIX]: {
+              target: VITE_API_BASE_URL,
+              changeOrigin: true,
+              rewrite: path => path.replace(new RegExp(`^${VITE_API_BASE_PREFIX}`), ''),
+            },
+          },
+    },
+    resolve: {
+      alias: {
+        '~': resolve(__dirname, './src'),
+      },
+    },
+    css: {
+      modules: {
+        localsConvention: 'camelCase',
+        scopeBehaviour: 'local',
+      },
+      preprocessorOptions: {
+        scss: {
+          api: 'modern-compiler',
+          silenceDeprecations: ['legacy-js-api'],
+        },
+      },
+      postcss: {
+        plugins: [
+          postcssPresetEnv(),
+          px2rpx({
+            replace: false,
+            transform: x => 2 * x,
+            exclude: 'node_modules',
+          }),
+        ],
+      },
+    },
+  } as UserConfig
+})
