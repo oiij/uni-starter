@@ -14,7 +14,7 @@ export default defineUniPages({
     backgroundTextStyle: '@bgTxtStyle',
     navigationBarBackgroundColor: '@navBgColor',
     navigationBarTextStyle: '@navTxtStyle',
-    navigationBarTitleText: 'Vitess-Uni',
+    navigationBarTitleText: 'UniStarter',
     navigationStyle: 'default',
   },
   tabBar: {

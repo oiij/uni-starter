@@ -1,12 +1,12 @@
 {
-  "name": "uni-app-starter",
+  "name": "uni-starter",
   "type": "module",
   "version": "0.0.1",
   "private": true,
   "description": "",
   "author": "Eiog",
   "license": "MIT",
-  "homepage": "https://github.com/Eiog/uni-app-starter",
+  "homepage": "https://github.com/Eiog/uni-starter",
   "scripts": {
     "dev": "unh dev",
     "dev:wx": "unh dev wx",

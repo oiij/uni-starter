@@ -2,7 +2,7 @@
 
 ## Overview
 
-**uni-app-starter** is a Vue 3 starter template for building cross-platform applications with uni-app. It targets H5, WeChat Mini Program, and HarmonyOS from a single codebase.
+**uni-starter** is a Vue 3 starter template for building cross-platform applications with uni-app. It targets H5, WeChat Mini Program, and HarmonyOS from a single codebase.
 
 - **Author**: Eiog
 - **License**: MIT

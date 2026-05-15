@@ -1,4 +1,4 @@
-# uni-app-starter
+# uni-starter
 
 基于 Vue 3 + Vite + TypeScript 的 uni-app 跨平台项目模板。
 
@@ -51,7 +51,7 @@ pnpm test
 ## 项目结构
 
 ```
-uni-app-starter/
+uni-starter/
 ├── src/
 │   ├── components/        # 公共组件
 │   ├── composables/       # 组合式函数 (自动导入)
