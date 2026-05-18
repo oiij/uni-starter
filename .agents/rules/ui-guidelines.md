@@ -36,7 +36,7 @@ notify.showNotify({ message: 'Message', position: 'bottom' })
   - `flex-center` instead of `flex justify-center items-center`
   - `wh-full` instead of `w-full h-full`
   - `flex-col` instead of `flex flex-col`
-- **Colors**: Use theme tokens (`bg-primary`, `text-gray-5`) or shorthand hex (`bg-#333`), never bracket syntax (`bg-[#333]`)
+- **Colors**: Use theme tokens (`bg-primary`, `text-gray-500`) or shorthand hex (`bg-#333`), never bracket syntax (`bg-[#333]`)
 
 ## Page Structure
 

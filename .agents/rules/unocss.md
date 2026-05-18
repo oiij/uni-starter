@@ -3,7 +3,7 @@
 ## Styling Rules
 
 - **Size**: prefer preset utilities (`w-10`, `h-10`). When no preset matches, use `size-10px` — never `size-[10px]`
-- **Colors**: prefer theme/preset colors (`bg-primary`, `text-gray-5`). When no preset matches, use `bg-#333` — never `bg-[#333]`
+- **Colors**: prefer theme/preset colors (`bg-primary`, `text-gray-500`). When no preset matches, use `bg-#333` — never `bg-[#333]`
 - **Duplicate classes**: extract repeated class sets into `@apply` in `<style>` blocks (transformer-directives enabled)
 
 ## oiijPreset Shortcuts
