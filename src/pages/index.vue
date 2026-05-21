@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useNotify as useWdNotify, useToast as useWdToast } from '@wot-ui/ui'
+import { useNotify, useToast } from '@wot-ui/ui'
 
 definePage({
   type: 'home',
@@ -7,12 +7,8 @@ definePage({
     navigationStyle: 'custom',
   },
 })
-const wdToast = useWdToast()
-const wdNotify = useWdNotify()
-const totalRef = ref(0)
-setInterval(() => {
-  totalRef.value++
-}, 1000)
+const toast = useToast()
+const notify = useNotify()
 </script>
 
 <template>
@@ -21,15 +17,9 @@ setInterval(() => {
   <WdNotify />
   <div class="flex-col gap-[10px] p-[10px]">
     <WdCellGroup title="WotDesignUI" border>
-      <WdCell title="wdToast" clickable @click="() => wdToast.show('WotDesign Toast')" />
-      <WdCell title="wdNotify" clickable @click="() => wdNotify.showNotify({ message: 'WotDesign Notify', position: 'bottom' })" />
+      <WdCell title="wdToast" clickable @click="() => toast.show('WotDesign Toast')" />
+      <WdCell title="wdNotify" clickable @click="() => notify.showNotify({ message: 'WotDesign Notify', position: 'bottom' })" />
     </WdCellGroup>
-    <WdButton>WotDesign Button</WdButton>
-  </div>
-  <div class="p-3">
-    <WdTag round>
-      total:{{ totalRef }}
-    </WdTag>
   </div>
 </template>
 

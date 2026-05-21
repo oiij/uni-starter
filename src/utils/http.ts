@@ -1,16 +1,13 @@
 import type { AxiosError, AxiosResponse, InternalAxiosRequestConfig } from 'axios'
 import { createUniAppAxiosAdapter } from '@uni-helper/axios-adapter'
 import axios from 'axios'
-
-const RELEASE_API_BASE_PREFIX = 'https://sys1.lfqqd.com/index.php/staff/api/index'
-const DEV_API_BASE_PREFIX = 'http://tk.lfqqd.com/index.php/staff/api/index'
-const { envVersion } = uni.getAccountInfoSync().miniProgram
+import { BASE_URL } from '~/constants/url'
 
 // 创建实例
 export const axiosInstance = axios.create({
   adapter: createUniAppAxiosAdapter(),
   // 前缀
-  baseURL: envVersion === 'release' ? RELEASE_API_BASE_PREFIX : DEV_API_BASE_PREFIX,
+  baseURL: BASE_URL,
   // 超时
   timeout: 1000 * 30,
   // 请求头

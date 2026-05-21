@@ -1,8 +1,14 @@
 <script setup lang='ts'>
-withDefaults(defineProps<{ prefix?: string, name: string, color?: string, width?: number, height?: number }>(), {
+withDefaults(defineProps<{
+  prefix?: string
+  name: string
+  width?: number
+  height?: number
+  customClass?: string
+}>(), {
   prefix: 'icon',
-  width: 40,
-  height: 40,
+  width: 48,
+  height: 48,
 })
 </script>
 
@@ -11,6 +17,7 @@ withDefaults(defineProps<{ prefix?: string, name: string, color?: string, width?
     :src="`/static/${prefix}-${name}.svg`"
     mode="aspectFit"
     :style="{ width: `${width}px`, height: `${height}px` }"
+    :class="[customClass]"
   />
 </template>
 
