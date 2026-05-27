@@ -26,14 +26,20 @@ export default defineUniPages({
       {
         pagePath: 'pages/index',
         text: '首页',
+        iconPath: 'static/icons/png/SolarCatBroken.png',
+        selectedIconPath: 'static/icons/png/SolarCatBold.png',
       },
       {
         pagePath: 'pages/echarts',
         text: 'ECharts',
+        iconPath: 'static/icons/png/SolarCodeCircleBroken.png',
+        selectedIconPath: 'static/icons/png/SolarCodeCircleBold.png',
       },
       {
         pagePath: 'pages/setting',
         text: '设置',
+        iconPath: 'static/icons/png/SolarGamepadBroken.png',
+        selectedIconPath: 'static/icons/png/SolarGamepadBold.png',
       },
     ],
   },

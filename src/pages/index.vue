@@ -20,6 +20,14 @@ const notify = useNotify()
       <WdCell title="wdToast" clickable @click="() => toast.show('WotDesign Toast')" />
       <WdCell title="wdNotify" clickable @click="() => notify.showNotify({ message: 'WotDesign Notify', position: 'bottom' })" />
     </WdCellGroup>
+    <WdButton type="success" loading>
+      成功按钮
+    </WdButton>
+    <WdSignature />
+    <div>
+      <i class="i-custom-shiliu" />
+      <i class="i-ri-user-fill" />
+    </div>
   </div>
 </template>
 
